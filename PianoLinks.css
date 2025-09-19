@@ -1,0 +1,37 @@
+body {
+  margin: 0;  /* quitar márgenes por defecto */
+  padding: 0 0 20px 0; /* solo deja espacio abajo */
+}
+
+.title-box {
+  background-color: #0a83ac;
+  color: black;
+  padding: 2%;
+  margin: 0; /* quita el margen externo */
+}
+
+.title {
+    font-size: 40px;
+    font-family: serif;
+    font-style: normal;
+}
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* espacio entre cuadros */
+  justify-content: center; /* centrar los cuadros */
+  padding: 20px;
+}
+
+.cuadro {
+  background-color: lightgray;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px; /* ancho fijo */
+  text-align: center;
+}
+
+.biggering {
+    font-size: 25px;
+}
