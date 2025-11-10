@@ -23,9 +23,16 @@
   border: 3px solid #36404a;
 }
 
-.sub_text{
+.list_text{
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
+  color: #191919;
+}
+
+.url_text{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  color: blue;
 }
 
 @font-face {
