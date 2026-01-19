@@ -1,0 +1,89 @@
+/*.navbar {
+    background-color: #dca650;
+    color: black;
+    padding: 2%;
+    margin: 0;
+    border: 3px solid #36404a;
+}*/
+
+
+/* Estilos básicos para limpiar márgenes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'TTRamillas', serif;
+}
+
+/* Contenedor principal */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #191919;
+  padding: 1rem 2rem;
+  color: #f8f8f8;
+  font-size: 1.5rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+/* Estilo de la lista de enlaces */
+.nav-links {
+  display: flex;
+  list-style: none; /* Quita los puntos de la lista */
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+/* Estilo de los enlaces */
+.nav-links a {
+  color: white;
+  text-decoration: none; /* Quita el subrayado */
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #dca650; /* Color al pasar el mouse */
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  /* Ajusta el número según la altura de tu navbar */
+  scroll-margin-top: 100px; 
+}
+
+.hero {
+  /* La imagen de fondo */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Capa oscura */
+    url('img/Luca\'s_Banner.png'); 
+  
+  height: 100vh;           /* 100% de la altura de la pantalla */
+  background-size: cover;    /* Escala la imagen para que cubra todo el espacio */
+  background-position: center; /* Centra la imagen */
+  display: flex;
+  justify-content: center;   /* Centra el texto horizontalmente */
+  align-items: center;       /* Centra el texto verticalmente */
+  text-align: center;
+  color: white;              /* Color del texto */
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+}
