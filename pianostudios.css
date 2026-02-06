@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'TTRamillas', serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #191919;
+  padding: 1rem 2rem;
+  color: #f8f8f8;
+  font-size: 1.5rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+.nav-links {
+  display: flex;
+  list-style: none; 
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+
+.nav-links a {
+  color: white;
+  text-decoration: none; 
+  transition: color 0.3s;
+}
+
+
+.hero {
+  /* La imagen de fondo */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Capa oscura */
+    url('img/Luca\'s_Banner.png'); 
+  
+  height: 100vh;           /* 100% de la altura de la pantalla */
+  background-size: cover;    /* Escala la imagen para que cubra todo el espacio */
+  background-position: center; /* Centra la imagen */
+  display: flex;
+  justify-content: center;   /* Centra el texto horizontalmente */
+  align-items: center;       /* Centra el texto verticalmente */
+  text-align: center;
+  color: white;              /* Color del texto */
+}
+
+
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+
+.hero-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;  
+}
+
+.title {
+  font-family: 'TTRamillas', serif;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+}
