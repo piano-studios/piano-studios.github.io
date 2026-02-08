@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'TTRamillas', serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #191919;
+  padding: 1rem 2rem;
+  color: #f8f8f8;
+  font-size: 1.5rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none; 
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+
+.nav-links a {
+  color: #f8f8f8;
+  text-decoration: none; 
+  transition: color 0.3s;
+}
+
+/*///////////////////////////////////////////*/
+
+.banner {
+  /* La imagen de fondo */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Capa oscura */
+    url('img/Luca\'s_Banner.png'); 
+  
+  height: 90vh;           /* 100% de la altura de la pantalla */
+  background-size: cover;    /* Escala la imagen para que cubra todo el espacio */
+  background-position: center; /* Centra la imagen */
+  display: flex;
+  justify-content: center;   /* Centra el texto horizontalmente */
+  padding-top: 10%;
+  /*align-items: center;        Centra el texto verticalmente */
+  text-align: center;
+  color: #f8f8f8;              /* Color del texto */
+  border-bottom: 20pc;
+}
+
+
+
+.banner-content h1 {
+  margin-bottom: 1rem;
+
+  font-family: 'TTRamillas', serif;
+  font-weight: bold;
+  font-size: 3.5rem;
+  color: #f8f8f8;
+}
+
+
+.banner-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;  
+}
+
+
+.contenedor {
+  gap: 20px; /* espacio entre cuadros */
+  justify-content: center; /* centrar los cuadros */
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+
+/* .section-content h1 {} */
+
+.title {
+  font-family: 'TTRamillas', serif;
+  font-weight: bold;
+  font-size: 3rem;
+  color: #191919;
+
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+}
+
+/*////////////////////////////////////////////////////////////////*/
+
+.scroll-btn {
+  position: absolute;
+  bottom: 15%;
+  left: 42.5%;
+  width: 15%;
+  height: 60px;
+  border: 3px solid #c9c9c9;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: #f8f8f8;
+
+}

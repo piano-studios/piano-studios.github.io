@@ -5,16 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Luca's Piano Studios</title>
 
-        <link rel="stylesheet" href="pianostudios.css">
+        <link rel="stylesheet" href="index.css">
         <link rel="shortcut icon" href="img/PianoStudios_Icon.png">
 
         <style>
             html {
                 scroll-behavior: smooth;
             }
+
             nav-links a:hover {
                 color: #dca650; 
             }
+
             section {
                 scroll-margin-top: 100px; 
             }   
@@ -26,39 +28,55 @@
         
         <nav class="navbar">
 
-            <div class="logo"><a href="pianostudios.html"><img src="img/Luca's_Logo-08.png" style="width: 14pc;"></a></div>
+            <div class="logo"><a href="#banner"><img src="img/Luca's_Logo-08.png" style="width: 14pc;"></a></div>
             
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#cursos">Cursos</a></li>
-                <li><a href="Material_Educativo/Content.html">Alumnos</a></li>
+                <li><a href="Material_Educativo/Contenido.html">Alumnos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
 
-        <header class="hero">
-            <div class="hero-content">
+        <section id="banner">
 
-                <h1 class="title">Bienvenidos a <br> Luca's Piano Studios</h1>
-                <p>Aprende piano a tu ritmo<br>"Toca las canciones que te apasionan desde la primera clase."</p>
+            <header class="banner">
+                <div class="banner-content">
 
-                <a href="#cursos" class="btn">Ver Cursos</a>
-            </div>
-        </header>
+                    <h1>Bienvenidos a <br> Luca's Piano Studios</h1>
+                    <p>Aprende piano a tu ritmo<br>"Toca las canciones que te apasionan desde la primera clase."</p>
+                    
+                    <a href="#cursos" class="scroll-btn">Ver cursos</a>
+
+
+                </div>
+            </header>
+
+        </section>
+
+
+
 
         <section id="inicio" style="height: 100vh; background-color: #f8f8f8;"  >
-            <h2 class="title" style="color: #191919;">Bienvenido</h2>
-            <p>Aquí explicamos lo que hacemos.</p>
+            <div class="contenedor">
+                <h2 class="title">Bienvenido</h2>
+                <p>Aquí explicamos lo que hacemos.</p>
+            </div>
         </section>
 
         <section id="cursos" style="height: 100vh; background-color: #f4f4f4;">
-            <h2 class="title" style="color: #191919;">Nuestros cursos</h2>
-            <p>Aquí explicamos los cursos.</p>
+            <div class="contenedor">
+                <h2 class="title">Nuestros cursos</h2>
+                <p>Aquí explicamos los cursos.</p>
+                <p>meterle informacion sobre los planes, horarios, precios y ubicacion</p>
+            </div>
         </section>
 
         <section id="contacto" style="height: 30vh; background-color: #c9c9c9;">
-            <h2 class="title" style="color: #191919;">Contáctanos</h2>
-            <p>Medio de contacto.</p>
+            <div class="contenedor">
+                <h2 class="title">Contacto</h2>
+                <p>contacto</p>
+            </div>
         </section>
 
 
