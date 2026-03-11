@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Construir el mensaje
     let texto = `¡Hola! Me interesa tomar clases en Luca's Piano Studios 🎹\n\n`;
-    texto += `👤 *Mi nombre es * ${nombre}\n`;
-    texto += `🎵 *Mi nivel es * ${nivel}\n`;
+    texto += `👤 Mi nombre es  ${nombre}\n`;
+    texto += `🎵 Mi nivel es  ${nivel}\n`;
     if (mensaje)  texto += `💬 *Mensaje:* ${mensaje}\n`;
     texto += `\n¿Me pueden dar más información? ¡Gracias!`;
 

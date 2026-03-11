@@ -260,6 +260,7 @@
     }
     .contact-detail-text { font-size: 0.9rem; line-height: 1.6; opacity: 0.75; }
     .contact-detail-text strong { display: block; opacity: 1; color: var(--white); margin-bottom: 2px; }
+    .contact-detail-text a { display: block; opacity: 1; color: var(--white); margin-bottom: 2px; }
 
     .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
