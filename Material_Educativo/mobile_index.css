@@ -1,0 +1,33 @@
+.body {
+  margin: 0;
+  display: flex;
+  
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #0a0a0a 50%, #111008 100%);
+}
+
+.navbar {
+  /* Orden de los elementos */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid #36404a;
+  padding: 2%;
+  margin: 0;
+  background: linear-gradient(160deg, #0a0a0a 50%, #111008 100%);
+
+  /* texto */
+  font-family: 'TTRamillas', serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #dca650;
+
+}
+
+.navbar img{width: 4%;}
+
+
+
+.lista-titulos{
+  background: #888;
+}

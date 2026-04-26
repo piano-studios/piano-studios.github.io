@@ -1,0 +1,121 @@
+.main_text{
+  font-family: 'TTRamillas', serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #191919;
+}
+
+.list_text{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;  
+  color: #191919;
+}
+
+
+@font-face {
+  font-family: 'TTRamillas';
+  src: url('fonts/TTRamillasTrl-Bold.woff2') format('woff2'),
+       url('fonts/TTRamillasTrl-Bold.woff') format('woff'),
+       url('fonts/TTRamillasTrl-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+
+/* actualización */
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #0a0a0a 50%, #111008 100%);
+}
+  
+.navbar {
+  /* Orden de los elementos */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid #36404a;
+  padding: 2%;
+  margin: 0;
+  background: linear-gradient(160deg, #0a0a0a 50%, #111008 100%);
+
+  /* texto */
+  font-family: 'TTRamillas', serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #dca650;
+
+}
+
+.nav-logo {width: 14%;}
+  
+/* Contenedor principal */
+.container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+  
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: #888;
+  padding: 15px;
+}
+  
+.sidebar h3 {margin-top: 0;}
+  
+.sidebar ul {list-style: none; padding: 0;}
+  
+.sidebar li {margin: 5px 0;}
+  
+/* Área principal */
+.main {
+  flex: 1;
+  background: #1e1e1e;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.main embed {
+  width: 90%;
+  height: 90%;
+  border: none;
+  padding: 10px;
+}
+
+
+
+.buttons-bar {
+  display: flex;
+  gap: 50px;
+  padding: 10px;
+  flex-direction: row;
+  
+  /* clave: que se ajuste al contenido pero mantenga alineación */
+  align-self: flex-start;     /* evita que empuje al visor */
+}
+
+.buttons-bar button {
+  background-color: #dca650;
+  color: #111008;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.buttons-bar button:hover {
+  background-color: #f0c060;
+}

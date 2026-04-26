@@ -1,0 +1,71 @@
+body{
+  background-color: #c9c9c9;
+  margin: 0;
+  padding: 0 0 20px 0;
+}
+
+.navbar{
+  background-color: #191919;
+  padding: 5%;
+  margin: 0;
+  border: 3px;
+}
+
+.nav-logo{ width: 15%; }
+
+.title {
+  font-family: 'TTRamillas', serif;
+  font-weight: bold;
+  font-size: 2rem;    
+}
+
+
+
+@font-face {
+  font-family: 'TTRamillas';
+  src: url('fonts/TTRamillasTrl-Bold.woff2') format('woff2'),
+       url('fonts/TTRamillasTrl-Bold.woff') format('woff'),
+       url('fonts/TTRamillasTrl-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* espacio entre cuadros */
+  justify-content: center; /* centrar los cuadros */
+  padding: 20px;
+}
+
+.cuadro {
+  text-align: center;
+  display: inline-block; /* Se ajusta al tamaño del texto */
+  padding: 1rem 2rem;    /* Espacio interno */
+  border-radius: 1rem;
+}
+
+.list_text{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #191919;
+}
+
+@font-face {
+  font-family: 'TTRamillas';
+  src: url('fonts/TTRamillasTrl-Bold.woff2') format('woff2'),
+       url('fonts/TTRamillasTrl-Bold.woff') format('woff'),
+       url('fonts/TTRamillasTrl-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.main_text{
+  font-family: 'TTRamillas', serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #191919;
+}
