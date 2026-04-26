@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luca's Piano Studios</title>
+  <link rel="shortcut icon" href="img/Luca_s_Logo-19.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div><a href="#inicio"><img class="nav-logo" src="img/Luca_s_Logo-16.png"></a></div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Clases</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="Material_Educativo/Contenido.html">Material</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MENÚ MÓVIL -->
+<div class="nav-mobile" id="mobileMenu">
+  <ul>
+    <li><a href="#inicio"    onclick="closeMenu()">Inicio</a></li>
+    <li><a href="#servicios" onclick="closeMenu()">Clases</a></li>
+    <li><a href="#precios"   onclick="closeMenu()">Precios</a></li>
+    <li><a href="#contacto"  onclick="closeMenu()">Contacto</a></li>
+    <li><a href="Material_Educativo/sub_index.html"  onclick="closeMenu()">Material</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      Aprende piano.<br>
+      <em>A tu ritmo.</em>
+    </h1>
+    <p class="hero-subtitle">
+      En Luca's Piano Studios transformamos la música en una experiencia divertida. <br> Clases para todos los niveles: desde las primeras notas hasta tus canciones favoritas — Con un enfoque divertido y dinámico
+    </p>
+    <div class="hero-cta">
+      <a href="#contacto" class="btn-primary">Reserva tu clase gratis</a>
+      <a href="#servicios" class="btn-outline">Ver clases</a>
+    </div>
+  </div>
+
+  <div class="hero-logo">
+    <img src="img/Luca_s_Logo-20.png">
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-label">Lo que ofrecemos</div>
+  <h2 class="section-title">Clases diseñadas<br><em>para ti</em></h2>
+  <div class="divider"></div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-name">Piano para Principiantes</div>
+      <p class="service-desc">
+        ¿Nunca has tocado un piano? Este es tu punto de partida. Aprende a entender el piano, vemos acordes básicos y estarás tocando tus canciones favoritas en un ambiente relajado.
+      </p>
+      <span class="service-tag">Piano Básico</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-name">Nivel Intermedio</div>
+      <p class="service-desc">
+        Ya tienes bases y quieres ir más lejos. Trabajamos técnica, armonía básica y empezamos a leer partituras y lo más importante: Tocamos lo que a ti te más te gusta.
+      </p>
+      <span class="service-tag">Piano Iniciado</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-name">Nivel Avanzado</div>
+      <p class="service-desc">
+        Para quienes buscan dominar el instrumento. Piezas complejas, interpretación expresiva, preparación para audiciones o simplemente el placer de tocar al más alto nivel.
+      </p>
+      <span class="service-tag">Piano Intermedio</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-name">Teoría Musical</div>
+      <p class="service-desc">
+        Entiende la música más allá de las teclas. Solfeo, armonía extendida, composición básica e improvisación, terminando el curso como un músico consolidado
+      </p>
+      <span class="service-tag">Piano Avanzado</span>
+    </div>
+
+
+    <div class="service-card">
+      <div class="service-name">Clases para Niños</div>
+      <p class="service-desc">
+        Método adaptado para los más pequeño. Fomentando creatividad, amor por la música y desarrollando disciplina desde temprana edad con dinámicas divertidas.
+      </p>
+      <span class="service-tag">A partir de 6 años</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios">
+  <div class="section-label">Inversión</div>
+  <h2 class="section-title">Planes <em>flexibles</em></h2>
+  <div class="divider"></div>
+  <p class="pricing-intro">
+    Elige el plan que mejor se adapte a tu ritmo y objetivos. Todos incluyen seguimiento personalizado y material de apoyo. Incluye clase muestra.
+  </p>
+
+  <div class="pricing-grid">
+
+
+    <div class="pricing-card featured">
+      <div class="featured-badge">⭐ Más popular</div>
+      <div class="plan-name">Intensivo</div>
+      <div class="plan-price"><span>$</span>500</div>
+      <div class="plan-freq">por mes · 8 clases</div>
+      <ul class="plan-features">
+        <li>2 clases semanales (1 hora c/u)</li>
+        <li>Material digital incluido</li>
+        <li>Seguimiento personalizado</li>
+        <li>Modalidad presencial</li>
+      </ul>
+      <a href="#contacto" class="plan-cta">Empezar</a>
+    </div>
+
+    
+    <div class="pricing-card">
+      <div class="plan-name">Básico</div>
+      <div class="plan-price"><span>$</span>400</div>
+      <div class="plan-freq">por mes · 4 clases</div>
+      <ul class="plan-features">
+        <li>1 clase semanal (90 min)</li>
+        <li>Material digital incluido</li>
+        <li>Seguimiento personalizado</li>
+        <li>Modalidad presencial</li>
+        <li>Enfoque en clase sabatina</li>
+      </ul>
+      <a href="#contacto" class="plan-cta">Empezar</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="plan-name">Clase Suelta</div>
+      <div class="plan-price"><span>$</span>100</div>
+      <div class="plan-freq">por sesión</div>
+      <ul class="plan-features">
+        <li>Sesión única de 60 min</li>
+        <li>Sin compromiso mensual</li>
+        <li>Ideal para repasos o prueba</li>
+        <li>Modalidad presencial</li>
+      </ul>
+      <a href="#contacto" class="plan-cta">Reservar</a>
+    </div>
+
+  </div>
+  <p class="pricing-note">* Precios en pesos mexicanos (MXN).</p>
+</section>
+
+<!-- Piano -->
+<section id="piano">
+  <div class="section-label">Duda frecuente</div>
+  <div class="section-title">¿Qué <em>piano necesito</em>?</div>
+  <div class="divider"></div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-name">Opción 1</div>
+      <div class="service-desc">-88 teclas (7 octavas) <br>-Atril para partituras <br>-Pedal sustain <br>-  Teclas sensibles y semipesadas <br><br>Todo esto es perfecto para tocar con lo que aprendemos a lo largo de las clases </div>
+      <span class="service-tag"><a href="https://www.amazon.com.mx/BREEZEE-MARKET-Contrapesadas-Alimentación-Instrumentos/dp/B0BQ1XK896/ref=sr_1_2_sspa?__mk_es_MX=ÅMÅŽÕÑ&amp;crid=3U3MWLWNM31KB&amp;dib=eyJ2IjoiMSJ9.nP8CMcQBU94QSORhlr4-qY743_GPmVagUzzL9dghd3DdSk45rD_yONmgfiI0TDHaAHvNHqTCNuVu0k5A6aBAY2qDRC1ltSnnQDkuuKiz2a7GeFCMTmVJtlfrDwSNQHBQ_zd1BNM6GqcJlMaP771hyCdfguqDWx3-ANnnRwBj1BNDoPtvDjHiJ42mQNY8QU7N8pqudxm5XEpfXFMgVyFJVPAZ4a6vLkKbdJcmn2qaJ2StlT_LzLwhDnLbF7h4QMEifb-8K1z2CEtVmzwGFQL3amTuVcMrQMhaY7PklcPqBNw.tCfm8xgvPv33DRoNHHnxpVzUyMLARqF7x7IwxLcFE1I&amp;dib_tag=se&amp;keywords=teclado+tecla+pesada&amp;qid=1772836468&amp;sprefix=teclado+tecla+pesada%2Caps%2C485&amp;sr=8-2-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1">Enlace</a></span>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Opción 2</div>
+      <div class="service-desc">-88 teclas (7 octavas) <br>-Atril para partituras <br>-Pedal sustain <br>Teclas sensibles <br>-Base para el teclado<br><br>Todo esto es casi perfecto para tocar con lo que aprendemos a lo largo de las clases <br></div>
+      <span class="service-tag"><a href="https://www.amazon.com.mx/Alesis-altavoces-auriculares-lecciones-incluidas/dp/B0CLVRL7YW/ref=sr_1_6?__mk_es_MX=ÅMÅŽÕÑ&crid=3U3MWLWNM31KB&dib=eyJ2IjoiMSJ9.nP8CMcQBU94QSORhlr4-qY743_GPmVagUzzL9dghd3DdSk45rD_yONmgfiI0TDHaAHvNHqTCNuVu0k5A6aBAY2qDRC1ltSnnQDkuuKiz2a7GeFCMTmVJtlfrDwSNQHBQ_zd1BNM6GqcJlMaP771hyCdfguqDWx3-ANnnRwBj1BNDoPtvDjHiJ42mQNY8QU7N8pqudxm5XEpfXFMgVyFJVPAZ4a6vLkKbdJcmn2qaJ2StlT_LzLwhDnLbF7h4QMEifb-8K1z2CEtVmzwGFQL3amTuVcMrQMhaY7PklcPqBNw.tCfm8xgvPv33DRoNHHnxpVzUyMLARqF7x7IwxLcFE1I&dib_tag=se&keywords=teclado+tecla+pesada&qid=1772836468&sprefix=teclado+tecla+pesada%2Caps%2C485&sr=8-6&ufe=app_do%3Aamzn1.fos.e9c905c0-296e-4852-9ea7-c9f4c88300d3">Enlace</a></span>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Opción 3</div>
+      <div class="service-desc">-61 teclas (5 octavas) <br>-Atril para partituras <br><br>Este piano es perfecto para principiantes, aún así para poder practicar todo lo que enseñamos en el curso, se queda corto</div>
+      <span class="service-tag"><a href="https://www.amazon.com.mx/gp/aw/d/B09G583BD7/?_encoding=UTF8&pd_rd_plhdr=t&aaxitk=6938768a7eeb1af14ea5aa9529bc5626&hsa_cr_id=0&sr=1-1-undefined&ref_=sbx_be_dp_arbies_lsi4d_asin_0_img&pd_rd_w=SZFKH&content-id=amzn1.sym.ce287161-c988-43f2-9b26-baa695c443f5&pf_rd_p=ce287161-c988-43f2-9b26-baa695c443f5&pf_rd_r=YKTT4KEX6X6MT0TF44C8&pd_rd_wg=HCACY&pd_rd_r=21f24a2d-f8e1-4cb1-b604-6c61b5a1608c">Enlace</a></span>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Pedal sustain</div>
+      <div class="service-desc"></div>
+      <span class="service-tag"><a href=""></a></span>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Pedal sustain</div>
+      <div class="service-desc"></div>
+      <span class="service-tag"><a href=""></a></span>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-label">Escríbenos</div>
+  <h2 class="section-title">Tu primera nota<br><em>empieza aquí</em></h2>
+  <div class="divider"></div>
+
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <p>
+        ¿Tienes dudas sobre qué plan elegir, qué nivel es el tuyo o cómo funcionan las clases online? Escríbenos o llámanos — respondemos rápido.
+      </p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <strong>Ubicación</strong>
+          Culiacán, Sinaloa, México<br>
+          (Dirección exacta al confirmar tu clase)
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📱</div>
+        <div class="contact-detail-text">
+          <strong>WhatsApp</strong>
+          +52 (667) 329-0264  
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📱</div>
+        <div class="contact-detail-text">
+          <strong>Instagram</strong>
+          <a href="https://www.instagram.com/luca_piano.studios?igsh=MWxxOGU4OWU4OG10dw%3D%3D&utm">luca_piano.studios</a>  
+        </div>
+      </div>
+
+      
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div class="contact-detail-text">
+          <strong>Horario de atención</strong>
+          Lunes a Sábado · 9:00 am – 8:00 pm
+        </div>
+      </div>
+    </div>
+
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre *</label>
+          <input id="f-nombre" type="text" placeholder="Tu nombre" />
+        </div>
+        <div class="form-group">
+          <label>Teléfono / WhatsApp</label>
+          <input id="f-telefono" type="tel" placeholder="+52 667 000 0000" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Nivel de experiencia *</label>
+        <select id="f-nivel">
+          <option value="">Selecciona una opción</option>
+          <option>Sin experiencia previa</option>
+          <option>Principiante</option>
+          <option>Intermedio</option>
+          <option>Avanzado</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje (opcional)</label>
+        <textarea id="f-mensaje" rows="4" placeholder="¿Tienes alguna pregunta o comentario?"></textarea>
+      </div>
+      <div id="form-error" style="display:none; color:#e05c5c; font-size:0.85rem;">
+        ⚠️ Por favor completa los campos obligatorios (Nombre y Nivel).
+      </div>
+      <button type="button" id="btn-whatsapp" class="btn-primary" style="width:100%;text-align:center;display:flex;align-items:center;justify-content:center;gap:0.6rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.054 23.446a.75.75 0 0 0 .916.916l5.584-1.478A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.660-.524-5.17-1.434l-.37-.22-3.815 1.01 1.01-3.816-.22-.37A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Enviar por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div><img class="footer-logo" src="img/Luca_s_Logo-16.png" alt=""></div>
+  <div class="footer-text">© 2024-2026 Luca's Piano Studios · Culiacán, Sinaloa</div>
+  <div class="footer-text">Hecho para amantes de la música</div>
+</footer>
+</body>
+</html>
