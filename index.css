@@ -228,8 +228,51 @@
       opacity: 0.45; text-align: center;
     }
 
+/* ── /////////////////////////////////////// ── */
+    /* ── dudas ── */
+    #dudas { background: var(--gray); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px; margin-top: 4rem;
+      border: 1.5px solid rgba(201,168,76,0.15);
+    }
+    .service-card {
+      background: var(--black);
+      padding: 2.5rem;
+      transition: background .3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .service-card:hover { background: #111; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      font-size: 2rem; margin-bottom: 1.2rem;
+    }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .service-desc {
+      font-size: 0.92rem; line-height: 1.75;
+      opacity: 0.65;
+    }
+    .service-tag {
+      display: inline-block; margin-top: 1.5rem;
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold);
+      border-bottom: 1px solid var(--gold); padding-bottom: 2px;
+    }
+
     /* ── CONTACTO ── */
-    #contacto { background: var(--gray); }
+    #contacto { background: var(--black); }
     .contact-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
