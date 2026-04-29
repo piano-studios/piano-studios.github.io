@@ -114,3 +114,40 @@ function togglePenta(){
         elemento_p5.style.display = "none"; 
       }
 }
+
+function toggleParti(){
+    let elemento_pa1 = document.getElementById("li_parti1");
+      if (elemento_pa1.style.display === "none") {
+        elemento_pa1.style.display = "block"; 
+      } else {
+        elemento_pa1.style.display = "none"; 
+      }
+
+    let elemento_pa2 = document.getElementById("li_parti2");
+      if (elemento_pa2.style.display === "none") {
+        elemento_pa2.style.display = "block"; 
+      } else {
+        elemento_pa2.style.display = "none"; 
+      }
+
+    let elemento_pa3 = document.getElementById("li_parti3");
+      if (elemento_pa3.style.display === "none") {
+        elemento_pa3.style.display = "block"; 
+      } else {
+        elemento_pa3.style.display = "none"; 
+      }
+
+    let elemento_pa4 = document.getElementById("li_parti4");
+      if (elemento_pa4.style.display === "none") {
+        elemento_pa4.style.display = "block"; 
+      } else {
+        elemento_pa4.style.display = "none"; 
+      }
+    
+    let elemento_pa5 = document.getElementById("li_parti5");
+      if (elemento_pa5.style.display === "none") {
+        elemento_pa5.style.display = "block"; 
+      } else {
+        elemento_pa5.style.display = "none"; 
+      }
+}
