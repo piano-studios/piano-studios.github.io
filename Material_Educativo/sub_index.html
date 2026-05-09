@@ -6,69 +6,87 @@
     <title>Material Educativo</title>
     <link rel="shortcut icon" href="img/Luca_s_Logo-19.png">
     <link rel="stylesheet" href="sub_index.css">
-    <script src="sub_index.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
 </head>
 <body>
 
-  <!-- Titulo principal -->
-    <div class="navbar">
-        <a href="https://piano-studios.github.io"><img class="nav-logo" src="img/Luca_s_Logo-16.png"></a>
 
-        <div class="buttons-bar">
-          <button id="download" onclick="downloadPDF()"> Descargar PDF</button>
-          <button id="open" onclick="openPDF()">Abrir PDF</button>
-        </div>
-    </div>
-
-  <!-- Neumagramas -->
-  <div class="container">
-    <div class="sidebar">
-      <h3 class="main_text" id="minimo"  onclick="toggleNeuma()">Neumagramas</h3>
-        <dl>
-            <dt class="list_text" id="li_neuma1" onclick="cambiarPDF('Neumagramas/Himno_de_la_Alegria.pdf')">- Himno de la Alegria</dt>
-            <dt class="list_text" id="li_neuma2" onclick="cambiarPDF('Neumagramas/Halellujah.pdf')">- Halellujah</dt>
-            <dt class="list_text" id="li_neuma3" onclick="cambiarPDF('Neumagramas/When_I_was_your_man.pdf')">- When I was your man</dt>
-        </dl>
-      
-  <!-- Unigramas -->
-      <h3 class="main_text" onclick="toggleUni()">Unigramas</h3>
-        <dl>
-            <dt class="list_text" id="li_uni1" onclick="cambiarPDF('Unigramas/Cadencia_Andaluza.pdf')">- Cadencia Andaluza</dt>
-            <dt class="list_text" id="li_uni2" onclick="cambiarPDF('Unigramas/The_Final_Countdown.pdf')">- The Final Countdown</dt>
-            <dt class="list_text" id="li_uni3" onclick="cambiarPDF('Unigramas/Yesterday.pdf')">- Yesterday</dt>
-        </dl>
-      
-  <!-- Pentagramas -->
-      <h3 class="main_text" onclick="togglePenta()">Pentagramas</h3>
-        <dl>
-            <dt class="list_text" id="li_penta1" onclick="cambiarPDF('Pentagramas/Himno_de_la_Alegría.pdf')">- Himno de la Alegría </dt>
-            <dt class="list_text" id="li_penta2" onclick="cambiarPDF('Pentagramas/Over_the_rainbow.pdf')">- Over the rainbow       </dt>
-            <dt class="list_text" id="li_penta3" onclick="cambiarPDF('Pentagramas/Hit_the_road_Jack.pdf')">- Hit the road Jack     </dt>
-            <dt class="list_text" id="li_penta4" onclick="cambiarPDF('Pentagramas/Lago_de_los_cisnes.pdf')">- Lago de los cisnes   </dt>
-            <dt class="list_text" id="li_penta5" onclick="cambiarPDF('Pentagramas/The_Final_Countdown.pdf')">- The Final Countdown </dt>
-        </dl>
-
-      <h3 class="main_text" onclick="toggleParti()">Partituras</h3>
-        <dl>
-          <dt class="sub_section">Vals</dt>
-          <dt class="list_text" id="li_parti1" onclick="cambiarPDF('Pentagramas2/Merry-Go-Round_Of_Life.pdf')">- Merry-Go-Round Of Life </dt>
-          <dt class="list_text" id="li_parti2" onclick="cambiarPDF('Pentagramas2/Vals_en_La_menor.pdf')">- Vals en La menor </dt>
-        </dl>
-        <dl>
-          <dt class="sub_section">Bajo Alberti</dt>
-          <dt class="list_text" id="li_parti3" onclick="cambiarPDF('Pentagramas2/Yesterday.pdf')">- Yesterday </dt>
-        </dl>
-    </div>
-
-
-  <!-- Visor -->
-    <div class="main">
-      <embed id="visor" src="bienvenida.pdf" type="application/pdf"/>
-    </div>
-
+  <div id="login" class="login">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="username" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="login()">Entrar</button>
   </div>
+  <div id="mainContent" style="display:none;">
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <h2>¡Bienvenido!</h2>
+        <p>Gracias por visitar mi página web.</p>
+        <button onclick="closePopup()">Cerrar</button>
+      </div>
+    </div>
 
+    <!-- Titulo principal -->
+      <div class="navbar">
+          <a href="https://piano-studios.github.io"><img class="nav-logo" src="img/Luca_s_Logo-16.png"></a>
+
+          <div class="buttons-bar">
+            <a href="Chord_vis.html"><button> Visualizador de acordes</button></a>
+            <button id="download" onclick="downloadPDF()"> Descargar PDF</button>
+            <button id="open" onclick="openPDF()">Abrir PDF</button>
+          </div>
+      </div>
+
+    <!-- Neumagramas -->
+    <div class="container">
+      <div class="sidebar">
+        <h3 class="main_text" id="minimo"  onclick="toggleNeuma()">Neumagramas</h3>
+          <dl>
+              <dt class="list_text" id="li_neuma1" onclick="cambiarPDF('Neumagramas/Himno_de_la_Alegria.pdf')">- Himno de la Alegria</dt>
+              <dt class="list_text" id="li_neuma2" onclick="cambiarPDF('Neumagramas/Halellujah.pdf')">- Halellujah</dt>
+              <dt class="list_text" id="li_neuma3" onclick="cambiarPDF('Neumagramas/When_I_was_your_man.pdf')">- When I was your man</dt>
+          </dl>
+        
+    <!-- Unigramas -->
+        <h3 class="main_text" onclick="toggleUni()">Unigramas</h3>
+          <dl>
+              <dt class="list_text" id="li_uni1" onclick="cambiarPDF('Unigramas/Cadencia_Andaluza.pdf')">- Cadencia Andaluza</dt>
+              <dt class="list_text" id="li_uni2" onclick="cambiarPDF('Unigramas/The_Final_Countdown.pdf')">- The Final Countdown</dt>
+              <dt class="list_text" id="li_uni3" onclick="cambiarPDF('Unigramas/Yesterday.pdf')">- Yesterday</dt>
+          </dl>
+        
+    <!-- Pentagramas -->
+        <h3 class="main_text" onclick="togglePenta()">Pentagramas</h3>
+          <dl>
+              <dt class="list_text" id="li_penta1" onclick="cambiarPDF('Pentagramas/Himno_de_la_Alegría.pdf')">- Himno de la Alegría </dt>
+              <dt class="list_text" id="li_penta2" onclick="cambiarPDF('Pentagramas/Over_the_rainbow.pdf')">- Over the rainbow       </dt>
+              <dt class="list_text" id="li_penta3" onclick="cambiarPDF('Pentagramas/Hit_the_road_Jack.pdf')">- Hit the road Jack     </dt>
+              <dt class="list_text" id="li_penta4" onclick="cambiarPDF('Pentagramas/Lago_de_los_cisnes.pdf')">- Lago de los cisnes   </dt>
+              <dt class="list_text" id="li_penta5" onclick="cambiarPDF('Pentagramas/The_Final_Countdown.pdf')">- The Final Countdown </dt>
+          </dl>
+
+        <h3 class="main_text" onclick="toggleParti()">Partituras</h3>
+          <dl>
+            <dt class="sub_section" id="sub_section1">Vals</dt>
+            <dt class="list_text" id="li_parti1" onclick="cambiarPDF('Pentagramas2/Merry-Go-Round_Of_Life.pdf')">- Merry-Go-Round Of Life </dt>
+            <dt class="list_text" id="li_parti2" onclick="cambiarPDF('Pentagramas2/Vals_en_La_menor.pdf')">- Vals en La menor </dt>
+          </dl>
+          <dl>
+            <dt class="sub_section" id="sub_section2">Bajo Alberti</dt>
+            <dt class="list_text" id="li_parti3" onclick="cambiarPDF('Pentagramas2/Yesterday.pdf')">- Yesterday </dt>
+          </dl>
+      </div>
+
+
+    <!-- Visor -->
+      <div class="main">
+        <embed id="visor" src="" type="application/pdf"/>
+      </div>
+
+    </div>
+  </div>
+  
+<script src="sub_index.js"></script>
 </body>
 </html>

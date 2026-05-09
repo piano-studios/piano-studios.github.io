@@ -116,6 +116,21 @@ function togglePenta(){
 }
 
 function toggleParti(){
+
+    let elemento_sub1 = document.getElementById("sub_section1");
+      if (elemento_sub1.style.display === "none") {
+        elemento_sub1.style.display = "block"; 
+      } else {
+        elemento_sub1.style.display = "none"; 
+      }
+
+    let elemento_sub2 = document.getElementById("sub_section2");
+      if (elemento_sub2.style.display === "none") {
+        elemento_sub2.style.display = "block"; 
+      } else {
+        elemento_sub2.style.display = "none"; 
+      }
+
     let elemento_pa1 = document.getElementById("li_parti1");
       if (elemento_pa1.style.display === "none") {
         elemento_pa1.style.display = "block"; 
@@ -151,3 +166,26 @@ function toggleParti(){
         elemento_pa5.style.display = "none"; 
       }
 }
+
+
+window.onload = function() {
+  document.getElementById("popup").style.display = "flex"; // aparece al cargar
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none"; // se oculta al cerrar
+}
+
+
+function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Ejemplo simple: usuario y contraseña fijos
+    if(user === "Luca" && pass === "1234") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+    }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visualizador de Acordes – Luca's Piano Studios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="Chord_vis.css"/>
+  
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1 class="page-title">Visualizador de <em>Acordes</em></h1>
+      <p class="page-sub">
+        Escribe el nombre de un acorde en inglés o español y verás las teclas iluminadas.<br>
+        Los acordes se expresan en el cifrado internacional.<br>
+        Ejemplos: <em>Cmaj7, Bbm, F#dim, Sol, Lam7, Do#sus4…</em>
+      </p>
+    </div>
+    <div class="logo">Luca's Piano Studios</div>
+  </header>
+
+  <div class="search-wrap">
+    <label class="search-label" for="chord-input">Escribe un acorde</label>
+    <div class="search-row">
+      <input id="chord-input" type="text"
+        placeholder="Ej: Cmaj7, Bbm, Sol#dim, Fa mayor…"
+        autocomplete="off" spellcheck="false"/>
+      <button id="search-btn">Buscar</button>
+    </div>
+    <div class="hints">
+      <span class="hint-tag" data-q="Cmaj7">Cmaj7</span>
+      <span class="hint-tag" data-q="Am">Am</span>
+      <span class="hint-tag" data-q="G7">G7</span>
+      <span class="hint-tag" data-q="Bdim">Bdim</span>
+      <span class="hint-tag" data-q="F#m">F#m</span>
+      <span class="hint-tag" data-q="Bbsus4">Bbsus4</span>
+      <span class="hint-tag" data-q="Dm9">Dm9</span>
+      <span class="hint-tag" data-q="Eaug">Eaug</span>
+      <span class="hint-tag" data-q="Solm">Solm</span>
+      <span class="hint-tag" data-q="Fa#half dim7">Fa# half dim7</span>
+    </div>
+  </div>
+
+  <div id="error-msg"></div>
+
+  <div id="result-panel">
+    <div class="result-header">
+      <div>
+        <div class="chord-name-display" id="disp-name"></div>
+        <div class="chord-formula-display" id="disp-formula"></div>
+      </div>
+      <div class="chord-description" id="disp-desc"></div>
+    </div>
+    <div class="notes-section" id="disp-notes">
+      <span class="notes-label">Notas</span>
+    </div>
+    <div class="piano-section">
+      <div class="piano-scroll">
+        <div class="piano-wrap" id="piano"></div>
+      </div>
+      <div class="label-row" id="label-row"></div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="l-swatch" style="background:var(--gold-root);border:1px solid #8a6820;"></div>
+          <span>Nota raíz</span>
+        </div>
+        <div class="legend-item">
+          <div class="l-swatch" style="background:var(--gold);border:1px solid #8a6820;"></div>
+          <span>Notas del acorde</span>
+        </div>
+        <div class="legend-item">
+          <div class="l-swatch" style="background:#f0ebe0;border:1px solid #999;"></div>
+          <span>No usada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="history-wrap" id="history-wrap" style="display:none">
+    <div class="history-label">Búsquedas recientes</div>
+    <div class="history-list" id="history-list"></div>
+  </div>
+
+  <footer>Luca's Piano Studios · Culiacán, Sinaloa · Visualizador de Acordes</footer>
+</div>
+
+<script src="Chord_vis.js"></script>
+
+</body>
+</html>

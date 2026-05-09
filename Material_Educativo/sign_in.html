@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .login {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    }
+
+    .login div {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Página de inicio de sesión -->
+    <div id="login" class="login">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" id="username" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
+    </div>
+
+    <!-- Contenido principal (oculto al inicio) -->
+    <div id="mainContent" style="display:none;">
+    <h1>Bienvenido a la página</h1>
+    <p>Este es el contenido protegido.</p>
+    </div>
+
+</body>
+<script>
+    function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Ejemplo simple: usuario y contraseña fijos
+    if(user === "luca" && pass === "1234" || user === "admin" && pass === "1478") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+    }
+
+</script>
+</html>
