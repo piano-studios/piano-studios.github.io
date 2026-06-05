@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tabla de Acordes – Luca's Piano Studios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:     #0a0a0a;
+      --surface:   #131313;
+      --surface2:  #1c1c1c;
+      --border:    rgba(201,168,76,0.15);
+      --gold:      #c9a84c;
+      --gold-lt:   #e8c97a;
+      --gold-root: #f0c85a;
+      --white:     #f5f0e8;
+      --muted:     #666;
+    }
+
+    html, body {
+      min-height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    .page-title em { font-style: italic; color: var(--gold); }
+    .page-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      font-weight: 300;
+    }
+
+    /* ── LEYENDA ── */
+    .legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .l-swatch {
+      width: 16px; height: 10px;
+      border-radius: 2px;
+    }
+
+    /* ── TABLA ── */
+    .table-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      border-collapse: collapse;
+      min-width: 720px;
+      width: 100%;
+    }
+
+    /* Header de columnas */
+    thead th {
+      padding: 1rem 1.2rem;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      white-space: nowrap;
+    }
+    thead th:first-child {
+      text-align: left;
+      border-right: 1px solid var(--border);
+      min-width: 80px;
+      width: 80px;
+      position: sticky;
+      left: 0;
+      z-index: 2;
+    }
+    thead th:not(:first-child) {
+      border-left: 1px solid rgba(201,168,76,0.08);
+    }
+
+    /* Filas */
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(201,168,76,0.03); }
+    tbody tr:nth-child(even) { background: rgba(255,255,255,0.018); }
+    tbody tr:nth-child(even):hover { background: rgba(201,168,76,0.04); }
+
+    /* Celda de nota (columna 1) */
+    td.note-cell {
+      padding: 0.9rem 1.2rem;
+      border-right: 1px solid var(--border);
+      vertical-align: middle;
+      position: sticky;
+      left: 0;
+      background: var(--surface);
+      z-index: 1;
+      min-width: 80px;
+      width: 80px;
+    }
+    .note-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--white);
+    }
+    .note-alt {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 1px;
+      font-weight: 300;
+    }
+
+    /* Celdas de acordes */
+    td.chord-cell {
+      padding: 0.7rem 0.9rem;
+      text-align: center;
+      vertical-align: middle;
+      border-left: 1px solid rgba(201,168,76,0.07);
+    }
+
+    .piano-wrap {
+      display: inline-block;
+      line-height: 0;
+    }
+
+    .chord-notes {
+      margin-top: 5px;
+      font-size: 0.66rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+      font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .page { padding: 2rem 1rem 4rem; }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; color: black; }
+      .page { padding: 1rem; }
+      header { border-color: #ccc; }
+      .table-scroll { border-color: #ccc; overflow: visible; }
+      thead th { background: #f5f5f5; color: #444; border-color: #ccc; }
+      td.note-cell { background: #f5f5f5; border-color: #ccc; }
+      tbody tr { border-color: #ccc; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="table-scroll">
+    <table id="chord-table">
+      <thead>
+        <tr>
+          <th>Nota</th>
+          <th>Mayor</th>
+          <th>Menor</th>
+          <th>Disminuido</th>
+          <th>Aumentado</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+/* ══════════════════════════════════════
+   DATOS
+══════════════════════════════════════ */
+
+const NOTES_TABLE = [
+  { name:'Do',    alt:null,     semi:0  },
+  { name:'Do♯',  alt:'Re♭',   semi:1  },
+  { name:'Re',    alt:null,     semi:2  },
+  { name:'Re♯',  alt:'Mi♭',   semi:3  },
+  { name:'Mi',    alt:null,     semi:4  },
+  { name:'Fa',    alt:null,     semi:5  },
+  { name:'Fa♯',  alt:'Sol♭',  semi:6  },
+  { name:'Sol',   alt:null,     semi:7  },
+  { name:'Sol♯', alt:'La♭',   semi:8  },
+  { name:'La',    alt:null,     semi:9  },
+  { name:'La♯',  alt:'Si♭',   semi:10 },
+  { name:'Si',    alt:null,     semi:11 },
+];
+
+const CHORD_COLS = [
+  { label:'Mayor',      intervals:[0,4,7] },
+  { label:'Menor',      intervals:[0,3,7] },
+  { label:'Disminuido', intervals:[0,3,6] },
+  { label:'Aumentado',  intervals:[0,4,8] },
+];
+
+// Nombres de notas en español (para las pastillas de notas)
+const NOTE_ES = ['Do','Do♯','Re','Re♯','Mi','Fa','Fa♯','Sol','Sol♯','La','La♯','Si'];
+
+/* ══════════════════════════════════════
+   GENERADOR DE PIANO MINI (SVG)
+══════════════════════════════════════ */
+
+/*
+  Dibuja un piano de 2 octavas en miniatura como SVG.
+  rootSemi:  semitono de la nota raíz (0=Do, 1=Do#, ...)
+  intervals: array de semitonos del acorde [0, 4, 7] por ejemplo
+
+  Diseño:
+    - Tecla blanca: KW × KH px
+    - Tecla negra:  BKW × BKH px, posicionada encima
+    - 2 octavas = 14 teclas blancas
+*/
+function miniPiano(rootSemi, intervals) {
+  const KW  = 14;   // ancho tecla blanca
+  const KH  = 44;   // alto tecla blanca
+  const BKW = 9;    // ancho tecla negra
+  const BKH = 27;   // alto tecla negra
+  const GAP = 0.8;  // separación entre teclas blancas
+
+  const totalW = 14 * KW;
+
+  /*
+    En lugar de iluminar TODAS las teclas de esa nota en cualquier octava,
+    calculamos los semitonos ABSOLUTOS exactos de las 3 notas del acorde
+    partiendo desde la raíz hacia arriba.
+
+    El teclado empieza en Do3 → semitono absoluto 36 (3 * 12).
+    - Raíz absoluta = 36 + rootSemi  (ej: Fa = 36 + 5 = 41)
+    - Otras notas   = rootAbs + interval  (ej: La = 41 + 4 = 45, Do = 41 + 7 = 48)
+
+    Así Fa mayor ilumina exactamente: Fa3, La3, Do4 — solo 3 teclas.
+  */
+  const START_SEMI = 36; // Do3
+  const rootAbs    = START_SEMI + rootSemi;
+  const chordAbs   = new Set(intervals.map(i => rootAbs + i));
+
+  // Semitonos de las teclas blancas dentro de una octava
+  const WHITE_SEMIS = [0, 2, 4, 5, 7, 9, 11];
+
+  /*
+    Teclas negras: afterW = índice de la tecla blanca a su izquierda (dentro de la octava)
+    La x se calcula como: (afterW + 1) * KW - BKW/2
+    lo que la centra exactamente entre las dos teclas blancas.
+  */
+  const BLACK_KEYS = [
+    { semi:1,  afterW:0 },  // Do# entre Do(0) y Re(1)
+    { semi:3,  afterW:1 },  // Re# entre Re(1) y Mi(2)
+    { semi:6,  afterW:3 },  // Fa# entre Fa(3) y Sol(4)
+    { semi:8,  afterW:4 },  // Sol# entre Sol(4) y La(5)
+    { semi:10, afterW:5 },  // La# entre La(5) y Si(6)
+  ];
+
+  let wKeys = '';  // SVG de teclas blancas
+  let bKeys = '';  // SVG de teclas negras (se dibujan encima)
+
+  for (let oct = 0; oct < 2; oct++) {
+    const ox = oct * 7 * KW; // offset horizontal de la octava
+
+    // ── Teclas blancas ──
+    WHITE_SEMIS.forEach((semi, wi) => {
+      const x      = ox + wi * KW;
+      // Semitono absoluto de esta tecla blanca en el teclado
+      const keyAbs = START_SEMI + oct * 12 + semi;
+      const isLit  = chordAbs.has(keyAbs);
+      const isRoot = keyAbs === rootAbs;
+
+      let fill   = '#f0ebe0';
+      let stroke = '#aaa';
+      if (isRoot)     { fill = '#f0c85a'; stroke = '#8a6820'; }
+      else if (isLit) { fill = '#c9a84c'; stroke = '#8a6820'; }
+
+      wKeys += `<rect x="${x + GAP/2}" y="0.5" width="${KW - GAP}" height="${KH - 1}"
+        fill="${fill}" stroke="${stroke}" stroke-width="0.6" rx="1.5"/>`;
+    });
+
+    // ── Teclas negras ──
+    BLACK_KEYS.forEach(({ semi, afterW }) => {
+      // Centrada entre las dos teclas blancas adyacentes
+      const x      = ox + (afterW + 1) * KW - BKW / 2;
+      // Semitono absoluto de esta tecla negra
+      const bKeyAbs = START_SEMI + oct * 12 + semi;
+      const isLit   = chordAbs.has(bKeyAbs);
+      const isRoot  = bKeyAbs === rootAbs;
+
+      let fill   = '#1c1c1c';
+      let stroke = '#555';
+      if (isRoot)     { fill = '#f0c85a'; stroke = '#8a6820'; }
+      else if (isLit) { fill = '#c9a84c'; stroke = '#8a6820'; }
+
+      bKeys += `<rect x="${x}" y="0" width="${BKW}" height="${BKH}"
+        fill="${fill}" stroke="${stroke}" stroke-width="0.6" rx="1.5"/>`;
+    });
+  }
+
+  return `<svg width="${totalW}" height="${KH}"
+    viewBox="0 0 ${totalW} ${KH}"
+    xmlns="http://www.w3.org/2000/svg"
+    style="display:block;overflow:visible">
+    ${wKeys}${bKeys}
+  </svg>`;
+}
+
+/* ══════════════════════════════════════
+   CONSTRUCCIÓN DE LA TABLA
+══════════════════════════════════════ */
+
+function buildTable() {
+  const tbody = document.getElementById('table-body');
+
+  NOTES_TABLE.forEach(({ name, alt, semi }) => {
+    const tr = document.createElement('tr');
+
+    // ── Columna 1: nota ──
+    const noteTd = document.createElement('td');
+    noteTd.className = 'note-cell';
+    noteTd.innerHTML = `
+      <div class="note-name">${name}</div>
+      ${alt ? `<div class="note-alt">${alt}</div>` : ''}
+    `;
+    tr.appendChild(noteTd);
+
+    // ── Columnas 2-5: acordes ──
+    CHORD_COLS.forEach(({ intervals }) => {
+      const td = document.createElement('td');
+      td.className = 'chord-cell';
+
+      // Calcular nombres de las notas del acorde
+      const noteNames = intervals.map(i =>
+        NOTE_ES[((semi + i) % 12 + 12) % 12]
+      ).join(' · ');
+
+      td.innerHTML = `
+        <div class="piano-wrap">${miniPiano(semi, intervals)}</div>
+        <div class="chord-notes">${noteNames}</div>
+      `;
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+}
+
+buildTable();
+</script>
+</body>
+</html>
