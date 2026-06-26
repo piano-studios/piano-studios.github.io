@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario de aguas frescas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBF6EF;
+    --surface: #FFFFFF;
+    --ink: #2C2117;
+    --ink-soft: #8A7A68;
+    --accent: #C2415B;
+    --accent-2: #E8A33D;
+    --line: #E9DECB;
+    --green: #6F8F45;
+    --radius: 16px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 5rem;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ margin-bottom: 2rem; }
+
+  .eyebrow{
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 0.6rem;
+  }
+
+  .lead{
+    color: var(--ink-soft);
+    max-width: 46ch;
+    line-height: 1.5;
+    margin: 0 0 1.25rem;
+  }
+
+  .flavor-strip{
+    display: flex;
+    gap: 4px;
+    height: 8px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .flavor-strip span{ flex: 1; }
+
+  /* ---------- Layout ---------- */
+  .layout{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .tables{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 900px){
+    .layout{
+      grid-template-columns: 1fr 320px;
+      gap: 2rem;
+    }
+    .summary{
+      position: sticky;
+      top: 2rem;
+    }
+  }
+
+  /* ---------- Table cards ---------- */
+  .table-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.25rem 1.5rem;
+    box-shadow: 0 1px 2px rgba(44,33,23,0.03);
+  }
+
+  .card-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    gap: 0.75rem;
+  }
+
+  .card-head h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .price-tag{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.25rem 0.4rem 0.25rem 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .price-tag input{
+    width: 3.4rem;
+    border: none;
+    background: transparent;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--ink);
+    text-align: right;
+    padding: 0.2rem 0.3rem;
+    border-radius: 6px;
+  }
+  .price-tag input:focus{ outline: 2px solid var(--accent); background: var(--surface); }
+
+  .table{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row{
+    display: grid;
+    grid-template-columns: 54px 54px 58px 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .row:last-child{ border-bottom: none; }
+
+  .row.head{
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .row.head span{
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .row.head span.lbl-sabor{ text-align: left; }
+
+  .cell{
+    font-variant-numeric: tabular-nums;
+  }
+
+  .debe-static{
+    width: 100%;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  input.hay{
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.4rem 0.2rem;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  input.hay:focus{
+    outline: 2px solid var(--accent);
+    background: var(--surface);
+  }
+
+  .llevar{
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .llevar.zero{ color: var(--ink-soft); }
+  .llevar.surplus{ color: var(--green); }
+
+  .sabor{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .flavor-dot{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+    display: inline-block;
+  }
+
+  .sabor-name{
+    flex: 1;
+    min-width: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .table-total{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 0.9rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--line);
+  }
+  .table-total span{
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+  .table-total strong{
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Summary ---------- */
+  .summary{
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+  .summary h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 0 0 1rem;
+    color: #FBF6EF;
+  }
+
+  .summary-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(251,246,239,0.12);
+    font-size: 0.9rem;
+  }
+
+  .summary-label{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+  .summary-label .dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--accent-2);
+  }
+  .summary-label .dot.lt{ background: var(--accent); }
+
+  .summary-calc{
+    color: rgba(251,246,239,0.6);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .summary-amount{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 1rem;
+    text-align: right;
+    min-width: 4.5rem;
+  }
+
+  .summary-total{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 0.9rem;
+    padding-top: 1rem;
+  }
+  .summary-total span{
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    color: rgba(251,246,239,0.6);
+  }
+  .summary-total strong{
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--accent-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Mobile sticky total ---------- */
+  .mobile-total{
+    display: none;
+  }
+  @media (max-width: 899px){
+    .mobile-total{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0.85rem 1.25rem;
+      font-family: 'Fraunces', serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      z-index: 10;
+    }
+    .mobile-total strong{
+      color: var(--accent-2);
+      font-size: 1.35rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .page{ padding-bottom: 5.5rem; }
+  }
+
+  @media (max-width: 380px){
+    .row{ grid-template-columns: 46px 46px 50px 1fr; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <p class="eyebrow">Inventario</p>
+    <div class="flavor-strip" id="flavorStrip"></div>
+  </header>
+
+  <main class="layout">
+
+    <section class="tables">
+
+      <article class="table-card">
+        <div class="card-head">
+          <h2>Aguas de litro y medio</h2>
+          <label class="price-tag">$<input type="number" id="price-15" value="24" min="0" step="0.5"> c/u</label>
+        </div>
+        <div class="table" id="grid-15">
+          <div class="row head">
+            <span>Debe</span>
+            <span>Hay</span>
+            <span>Llevar</span>
+            <span class="lbl-sabor">Sabor</span>
+          </div>
+        </div>
+        <div class="table-total">
+          <span>Total a llevar</span>
+          <strong id="total-15">0</strong>
+        </div>
+      </article>
+
+      <article class="table-card">
+        <div class="card-head">
+          <h2>Aguas de litro</h2>
+          <label class="price-tag">$<input type="number" id="price-10" value="17" min="0" step="0.5"> c/u</label>
+        </div>
+        <div class="table" id="grid-10">
+          <div class="row head">
+            <span>Debe</span>
+            <span>Hay</span>
+            <span>Llevar</span>
+            <span class="lbl-sabor">Sabor</span>
+          </div>
+        </div>
+        <div class="table-total">
+          <span>Total a llevar</span>
+          <strong id="total-10">0</strong>
+        </div>
+      </article>
+
+    </section>
+
+    <aside class="summary">
+      <h2>Resumen</h2>
+
+      <div class="summary-row">
+        <div class="summary-label"><span class="dot lt"></span>Litro y medio</div>
+        <div class="summary-calc"><span id="qty-15">0</span> × $<span id="p-15">24</span></div>
+        <div class="summary-amount">$<span id="amt-15">0</span></div>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-label"><span class="dot"></span>Litro</div>
+        <div class="summary-calc"><span id="qty-10">0</span> × $<span id="p-10">17</span></div>
+        <div class="summary-amount">$<span id="amt-10">0</span></div>
+      </div>
+
+      <div class="summary-total">
+        <span>Total</span>
+        <strong>$<span id="grand-total">0</span></strong>
+      </div>
+    </aside>
+
+  </main>
+
+  <div class="mobile-total">
+    Total <strong>$<span id="grand-total-mobile">0</span></strong>
+  </div>
+
+</div>
+
+<script>
+  // Colores de referencia para cada sabor (se pueden cambiar con el selector de color)
+  const FLAVOR_COLORS = {
+    'jamaica': '#C2415B',
+    'limon': '#9DBE4B',
+    'tamarindo': '#8B5A3C',
+    'pina': '#F0BD4A',
+    'cebada': '#D9C7A8',
+    'horchata': '#EFE3CB',
+    'naranjita': '#EE8C3F',
+    'fresa limon': '#E27890',
+    'fresa leche': '#E8A0AE'
+  };
+  const DEFAULT_COLOR = '#CBBFA9';
+
+  function normalize(str){
+    return str.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .trim();
+  }
+
+  function colorFor(sabor){
+    return FLAVOR_COLORS[normalize(sabor)] || DEFAULT_COLOR;
+  }
+
+  const DATA_15 = [
+    { debe: 18, hay: 5, sabor: 'Jamaica' },
+    { debe: 18, hay: 0, sabor: 'Limón' },
+    { debe: 2,  hay: 1, sabor: 'Fresa limón' },
+    { debe: 2,  hay: 1, sabor: 'Fresa leche' },
+    { debe: 3,  hay: 0, sabor: 'Tamarindo' },
+    { debe: 3,  hay: 1, sabor: 'Piña' },
+    { debe: 2,  hay: 0, sabor: 'Cebada' },
+    { debe: 2,  hay: 0, sabor: 'Horchata' }
+  ];
+
+  const DATA_10 = [
+    { debe: 8, hay: 5, sabor: 'Jamaica' },
+    { debe: 5, hay: 1, sabor: 'Piña' },
+    { debe: 5, hay: 4, sabor: 'Tamarindo' },
+    { debe: 7, hay: 1, sabor: 'Limón' },
+    { debe: 5, hay: 0, sabor: 'Fresa limón' },
+    { debe: 3, hay: 2, sabor: 'Cebada' },
+    { debe: 3, hay: 1, sabor: 'Horchata' },
+    { debe: 5, hay: 1, sabor: 'Naranjita' },
+    { debe: 5, hay: 2, sabor: 'Fresa leche' }
+  ];
+
+  function buildRow(item){
+    const row = document.createElement('div');
+    row.className = 'row';
+
+    const debe = document.createElement('span');
+    debe.className = 'cell debe-static';
+    debe.textContent = item.debe;
+
+    const hay = document.createElement('input');
+    hay.type = 'number'; hay.min = '0'; hay.className = 'cell hay';
+    hay.value = item.hay;
+
+    const llevar = document.createElement('span');
+    llevar.className = 'cell llevar';
+
+    const saborWrap = document.createElement('div');
+    saborWrap.className = 'cell sabor';
+
+    const dot = document.createElement('span');
+    dot.className = 'flavor-dot';
+    dot.style.background = colorFor(item.sabor);
+
+    const name = document.createElement('span');
+    name.className = 'sabor-name';
+    name.textContent = item.sabor;
+
+    saborWrap.appendChild(dot);
+    saborWrap.appendChild(name);
+
+    row.appendChild(debe);
+    row.appendChild(hay);
+    row.appendChild(llevar);
+    row.appendChild(saborWrap);
+
+    return row;
+  }
+
+  function setupTable(gridId, totalId, data){
+    const grid = document.getElementById(gridId);
+    data.forEach(item => grid.appendChild(buildRow(item)));
+
+    grid.addEventListener('input', e => {
+      if (e.target.classList.contains('hay')) {
+        recalcTable(gridId, totalId);
+        updateSummary();
+      }
+    });
+
+    recalcTable(gridId, totalId);
+  }
+
+  function recalcTable(gridId, totalId){
+    const grid = document.getElementById(gridId);
+    let total = 0;
+    grid.querySelectorAll('.row:not(.head)').forEach(row => {
+      const debe = parseFloat(row.querySelector('.debe-static').textContent) || 0;
+      const hay = parseFloat(row.querySelector('.hay').value) || 0;
+      const llevar = debe - hay;
+      const cell = row.querySelector('.llevar');
+      cell.classList.remove('zero', 'surplus');
+      if (llevar > 0) {
+        cell.textContent = llevar;
+      } else if (llevar === 0) {
+        cell.textContent = '0';
+        cell.classList.add('zero');
+      } else {
+        cell.textContent = '+' + Math.abs(llevar);
+        cell.classList.add('surplus');
+      }
+      total += llevar;
+    });
+    document.getElementById(totalId).textContent = total;
+  }
+
+  function fmt(n){
+    return n.toLocaleString('es-MX', { maximumFractionDigits: 2 });
+  }
+
+  function updateSummary(){
+    const qty15 = parseFloat(document.getElementById('total-15').textContent) || 0;
+    const qty10 = parseFloat(document.getElementById('total-10').textContent) || 0;
+    const price15 = parseFloat(document.getElementById('price-15').value) || 0;
+    const price10 = parseFloat(document.getElementById('price-10').value) || 0;
+
+    const amt15 = qty15 * price15;
+    const amt10 = qty10 * price10;
+    const grand = amt15 + amt10;
+
+    document.getElementById('qty-15').textContent = qty15;
+    document.getElementById('qty-10').textContent = qty10;
+    document.getElementById('p-15').textContent = fmt(price15);
+    document.getElementById('p-10').textContent = fmt(price10);
+    document.getElementById('amt-15').textContent = fmt(amt15);
+    document.getElementById('amt-10').textContent = fmt(amt10);
+    document.getElementById('grand-total').textContent = fmt(grand);
+    document.getElementById('grand-total-mobile').textContent = fmt(grand);
+  }
+
+  document.getElementById('price-15').addEventListener('input', updateSummary);
+  document.getElementById('price-10').addEventListener('input', updateSummary);
+
+  // Tira de colores decorativa
+  const strip = document.getElementById('flavorStrip');
+  Object.values(FLAVOR_COLORS).forEach(color => {
+    const seg = document.createElement('span');
+    seg.style.background = color;
+    strip.appendChild(seg);
+  });
+
+  setupTable('grid-15', 'total-15', DATA_15);
+  setupTable('grid-10', 'total-10', DATA_10);
+  updateSummary();
+</script>
+
+</body>
+</html>
