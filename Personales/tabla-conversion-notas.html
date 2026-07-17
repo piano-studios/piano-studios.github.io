@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tabla de Conversión – Luca's Piano Studios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --surface: #131313;
+      --border:  rgba(201,168,76,0.15);
+      --gold:    #c9a84c;
+      --gold-lt: #e8c97a;
+      --white:   #f5f0e8;
+      --muted:   #666;
+    }
+
+    html, body {
+      min-height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .page {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid var(--white);
+      margin-bottom: 2.5rem;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    .page-title em { font-style: italic; color: var(--black); }
+    .page-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      font-weight: 300;
+    }
+
+    /* TABLE */
+    .table-wrap {
+      border: 1px solid var(--black);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      padding: 0.9rem 1.4rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--white);
+      text-align: center;
+      border-bottom: 1px solid var(--black);
+    }
+    thead th:not(:last-child) {
+      border-right: 1px solid var(--black);
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--black);
+      transition: background .15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--white); }
+
+    td {
+      padding: 0.85rem 1.4rem;
+      text-align: center;
+      vertical-align: middle;
+      border-right: 1px solid var(--black);
+      font-size: 1rem;
+    }
+    td:last-child { border-right: none; }
+
+    /* Columna española */
+    .col-es {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--black);
+    }
+    .col-es .alt {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Flecha */
+    .col-arrow {
+      color: var(--black);
+      font-size: 1rem;
+      opacity: 1;
+      width: 60px;
+    }
+
+    /* Columna inglesa */
+    .col-en {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--black);
+    }
+    .col-en .alt {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Columna semitono */
+    .col-semi {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 300;
+      width: 80px;
+    }
+
+    /* Nota especial para filas con enarmónico */
+    tr.enharmonic td { background: rgba(201,168,76,0.025); }
+
+    /* FOOTER */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* PRINT */
+    @media print {
+      body { background: white; color: black; }
+      .page { padding: 1rem; }
+      .table-wrap { border-color: #ccc; }
+      thead th { background: #f5f5f5; color: #444; border-color: #ccc; }
+      td { border-color: #ddd; }
+      .col-en { color: #444; }
+      .logo { color: #444; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Español</th>
+          <th></th>
+          <th>Inglés</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="col-es">Do</td>
+          <td class="col-arrow">→</td>
+          <td class="col-en">C</td>
+        </tr>
+
+        <tr>
+          <td class="col-es">Re</td>
+          <td class="col-arrow">→</td>
+          <td class="col-en">D</td>
+        </tr>
+
+        <tr>
+          <td class="col-es">Mi</td>
+          <td class="col-arrow">→</td>
+          <td class="col-en">E</td>
+        </tr>
+
+        <tr>
+          <td class="col-es">Fa</td>
+          <td class="col-arrow">→</td>
+          <td class="col-en">F</td>
+        </tr>
+
+        <tr>
+          <td class="col-es">Sol</td>
+          <td class="col-arrow">→</td>
+          <td class="col-en">G</td>
+        </tr>
+
+        <tr>
+          <td class="col-es">La</td>
+          <td class="col-arrow">→</td>
+          <td class="col-en">A</td>
+        </tr>
+
+        <tr>
+          <td class="col-es">Si</td>
+          <td class="col-arrow">→</td>
+          <td class="col-en">B</td> 
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
