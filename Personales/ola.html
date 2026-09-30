@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Creation and Nature - Review</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background: #e8dfce;
+        font-family: "Trebuchet MS", Arial, sans-serif;
+        color: #303030;
+    }
+
+    .page {
+        max-width: 900px;
+        margin: 30px auto;
+        background: #fffdf5;
+        padding: 35px 45px;
+        box-shadow: 0 5px 20px rgba(0,0,0,.3);
+        border-radius: 5px;
+    }
+
+    header {
+        text-align: center;
+        border-bottom: 3px solid #4775a8;
+        padding-bottom: 15px;
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        color: #356796;
+        margin: 0;
+        font-size: 30px;
+    }
+
+    .subtitle {
+        color: #777;
+        margin-top: 8px;
+        font-size: 17px;
+    }
+
+    .instructions {
+        background: #eef5fb;
+        border-left: 6px solid #4775a8;
+        padding: 12px 16px;
+        margin-bottom: 25px;
+        font-size: 17px;
+    }
+
+    .section-title {
+        color: #b54b55;
+        font-size: 23px;
+        margin: 28px 0 15px;
+    }
+
+    .question {
+        margin: 18px 0;
+        padding: 10px 5px;
+        font-size: 18px;
+        line-height: 1.8;
+        border-bottom: 1px dashed #ccc;
+    }
+
+    .number {
+        color: #438054;
+        font-weight: bold;
+        margin-right: 8px;
+    }
+
+    /* Text answers */
+
+    input[type="text"] {
+        border: none;
+        border-bottom: 2px solid #777;
+        background: transparent;
+        width: 190px;
+        font-size: 18px;
+        outline: none;
+        padding: 3px 5px;
+    }
+
+    input[type="text"]:focus {
+        border-bottom-color: #3975a8;
+        background: #f1f7fc;
+    }
+
+    /* Multiple choice */
+
+    .options {
+        display: inline-flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        margin-left: 5px;
+    }
+
+    .option {
+        border: none;
+        background: transparent;
+        font-size: 17px;
+        cursor: pointer;
+        padding: 2px 5px;
+    }
+
+    .option:hover {
+        color: #24689b;
+    }
+
+    .option.selected {
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-decoration-color: #3975a8;
+        font-weight: bold;
+    }
+
+    /* Bible verse */
+
+    .verse {
+        margin-top: 30px;
+        padding: 22px;
+        border: 5px solid #86a85e;
+        background: #f8fbe9;
+        text-align: center;
+        font-size: 19px;
+        line-height: 2;
+    }
+
+    .verse input {
+        width: 150px;
+    }
+
+    /* Buttons */
+
+    .buttons {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    button.main-btn {
+        background: #3975a8;
+        color: white;
+        border: none;
+        padding: 13px 28px;
+        margin: 5px;
+        border-radius: 7px;
+        font-size: 17px;
+        cursor: pointer;
+    }
+
+    button.main-btn:hover {
+        background: #28577f;
+    }
+
+    /* Result */
+
+    #result {
+        display: none;
+        margin-top: 20px;
+        padding: 18px;
+        text-align: center;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .correct {
+        color: #28743c;
+        background: #e7f6e9;
+    }
+
+    .incorrect {
+        color: #a33b3b;
+        background: #fbe8e8;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 650px) {
+
+        .page {
+            margin: 0;
+            padding: 25px 18px;
+        }
+
+        h1 {
+            font-size: 25px;
+        }
+
+        .question {
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            width: 140px;
+        }
+    }
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <header>
+        <h1>Creation and Nature Review</h1>
+
+        <div class="subtitle">
+            Fill in the blank or choose the best answer.
+        </div>
+    </header>
+
+
+    <div class="instructions">
+        <strong>Directions:</strong>
+        Fill in the blank with the correct word, or choose the best answer.
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- PART I -->
+    <!-- ================================= -->
+
+    <div class="section-title">
+        I. Fill in the blanks.
+    </div>
+
+
+    <div class="question">
+        <span class="number">(1)</span>
+        God created
+        <input type="text" data-answer="light">
+        on the first day.
+    </div>
+
+
+    <div class="question">
+        <span class="number">(2)</span>
+        The Earth is covered by
+        <input type="text" data-answer="air">
+        .
+    </div>
+
+
+    <div class="question">
+        <span class="number">(3)</span>
+        Moving air is called
+        <input type="text" data-answer="wind">
+        .
+    </div>
+
+
+    <div class="question">
+        <span class="number">(4)</span>
+        A light wind is called a
+        <input type="text" data-answer="breeze">
+        .
+    </div>
+
+
+    <div class="question">
+        <span class="number">(5)</span>
+        The Earth moves around the
+        <input type="text" data-answer="sun">
+        .
+    </div>
+
+
+    <div class="question">
+        <span class="number">(6)</span>
+        Large bodies of salt water are called
+        <input type="text" data-answer="oceans">
+        .
+    </div>
+
+
+    <div class="question">
+        <span class="number">(7)</span>
+        Plants need water, air, and
+        <input type="text" data-answer="light">
+        to grow.
+    </div>
+
+
+    <div class="question">
+        <span class="number">(8)</span>
+        Earth takes about one year to go around the
+        <input type="text" data-answer="sun">
+        .
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- PART II -->
+    <!-- ================================= -->
+
+    <div class="section-title">
+        II. Draw a line under the best answer.
+    </div>
+
+
+    <div class="question multiple">
+
+        <span class="number">(9)</span>
+
+        On the first day, God made:
+
+        <span class="options">
+
+            <button class="option" data-answer="false">
+                plants
+            </button>
+
+            <button class="option" data-answer="true">
+                light
+            </button>
+
+            <button class="option" data-answer="false">
+                fish
+            </button>
+
+        </span>
+
+    </div>
+
+
+    <div class="question multiple">
+
+        <span class="number">(10)</span>
+
+        God called the light:
+
+        <span class="options">
+
+            <button class="option" data-answer="true">
+                day
+            </button>
+
+            <button class="option" data-answer="false">
+                night
+            </button>
+
+            <button class="option" data-answer="false">
+                sky
+            </button>
+
+        </span>
+
+    </div>
+
+
+    <div class="question multiple">
+
+        <span class="number">(11)</span>
+
+        God called the darkness:
+
+        <span class="options">
+
+            <button class="option" data-answer="false">
+                day
+            </button>
+
+            <button class="option" data-answer="true">
+                night
+            </button>
+
+            <button class="option" data-answer="false">
+                water
+            </button>
+
+        </span>
+
+    </div>
+
+
+    <div class="question multiple">
+
+        <span class="number">(12)</span>
+
+        A light wind is called a:
+
+        <span class="options">
+
+            <button class="option" data-answer="false">
+                storm
+            </button>
+
+            <button class="option" data-answer="true">
+                breeze
+            </button>
+
+            <button class="option" data-answer="false">
+                cloud
+            </button>
+
+        </span>
+
+    </div>
+
+
+    <div class="question multiple">
+
+        <span class="number">(13)</span>
+
+        Temperature tells us how:
+
+        <span class="options">
+
+            <button class="option" data-answer="false">
+                fast the wind moves
+            </button>
+
+            <button class="option" data-answer="true">
+                hot or cold something is
+            </button>
+
+            <button class="option" data-answer="false">
+                large a cloud is
+            </button>
+
+        </span>
+
+    </div>
+
+
+    <div class="question multiple">
+
+        <span class="number">(14)</span>
+
+        Which one is a body of water?
+
+        <span class="options">
+
+            <button class="option" data-answer="false">
+                Mountain
+            </button>
+
+            <button class="option" data-answer="true">
+                Lake
+            </button>
+
+            <button class="option" data-answer="false">
+                Tree
+            </button>
+
+        </span>
+
+    </div>
+
+
+    <div class="question multiple">
+
+        <span class="number">(15)</span>
+
+        Oceans and seas have:
+
+        <span class="options">
+
+            <button class="option" data-answer="true">
+                salt
+            </button>
+
+            <button class="option" data-answer="false">
+                nothing
+            </button>
+
+            <button class="option" data-answer="false">
+                only sand
+            </button>
+
+        </span>
+
+    </div>
+
+
+    <div class="question multiple">
+
+        <span class="number">(16)</span>
+
+        According to Genesis, God created everything in:
+
+        <span class="options">
+
+            <button class="option" data-answer="false">
+                four days
+            </button>
+
+            <button class="option" data-answer="true">
+                six days
+            </button>
+
+            <button class="option" data-answer="false">
+                ten days
+            </button>
+
+        </span>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- PART III -->
+    <!-- ================================= -->
+
+    <div class="section-title">
+        III. Complete the sentences.
+    </div>
+
+
+    <div class="question">
+
+        <span class="number">(17)</span>
+
+        Frozen water is called
+        <input type="text" data-answer="ice">
+        .
+
+    </div>
+
+
+    <div class="question">
+
+        <span class="number">(18)</span>
+
+        Clouds are made of tiny drops of
+        <input type="text" data-answer="water">
+        .
+
+    </div>
+
+
+    <div class="question">
+
+        <span class="number">(19)</span>
+
+        Animals and people need
+        <input type="text" data-answer="water">
+        to live.
+
+    </div>
+
+
+    <div class="question">
+
+        <span class="number">(20)</span>
+
+        The green things that grow from the ground are called
+        <input type="text" data-answer="plants">
+        .
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- PART IV -->
+    <!-- ================================= -->
+
+    <div class="section-title">
+        IV. Complete the Bible verse.
+    </div>
+
+
+    <div class="verse">
+
+        <input type="text" data-answer="bear">
+
+        ye one another's burdens,
+
+        and so fulfill the law of Christ.
+
+        <br>
+
+        <strong>Galatians 6:2</strong>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="buttons">
+
+        <button class="main-btn" onclick="checkAnswers()">
+            Check Answers
+        </button>
+
+        <button class="main-btn" onclick="resetQuiz()">
+            Try Again
+        </button>
+
+    </div>
+
+
+    <div id="result"></div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   SELECT MULTIPLE-CHOICE ANSWERS
+========================================= */
+
+document.querySelectorAll(".option").forEach(option => {
+
+    option.addEventListener("click", function() {
+
+        const group = this.parentElement;
+
+        group.querySelectorAll(".option").forEach(button => {
+            button.classList.remove("selected");
+            button.style.color = "";
+        });
+
+        this.classList.add("selected");
+
+    });
+
+});
+
+
+/* =========================================
+   REMOVE ACCENTS AND SPACES
+========================================= */
+
+function normalize(text) {
+
+    return text
+        .toLowerCase()
+        .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+/* =========================================
+   CHECK ANSWERS
+========================================= */
+
+function checkAnswers() {
+
+    let correct = 0;
+    let total = 0;
+
+
+    /* -------------------------------
+       TEXT QUESTIONS
+    -------------------------------- */
+
+    document.querySelectorAll("input[data-answer]")
+        .forEach(input => {
+
+            total++;
+
+            const userAnswer =
+                normalize(input.value);
+
+            const correctAnswer =
+                normalize(input.dataset.answer);
+
+
+            if (userAnswer === correctAnswer) {
+
+                correct++;
+
+                input.style.borderBottomColor =
+                    "#299447";
+
+                input.style.background =
+                    "#e9f8ec";
+
+            } else {
+
+                input.style.borderBottomColor =
+                    "#c33";
+
+                input.style.background =
+                    "#fceaea";
+
+            }
+
+        });
+
+
+    /* -------------------------------
+       MULTIPLE CHOICE
+    -------------------------------- */
+
+    document.querySelectorAll(".options")
+        .forEach(group => {
+
+            total++;
+
+            const selected =
+                group.querySelector(".selected");
+
+
+            if (selected &&
+                selected.dataset.answer === "true") {
+
+                correct++;
+
+                selected.style.color =
+                    "#299447";
+
+            } else if (selected) {
+
+                selected.style.color =
+                    "#c33";
+
+            }
+
+        });
+
+
+    /* -------------------------------
+       SHOW RESULT
+    -------------------------------- */
+
+    const percentage =
+        Math.round((correct / total) * 100);
+
+    const result =
+        document.getElementById("result");
+
+    result.style.display = "block";
+
+
+    if (percentage >= 70) {
+
+        result.className = "correct";
+
+        result.innerHTML =
+            `Great job! You got ${correct} out of ${total} correct (${percentage}%).`;
+
+    } else {
+
+        result.className = "incorrect";
+
+        result.innerHTML =
+            `You got ${correct} out of ${total} correct (${percentage}%). Keep practicing!`;
+
+    }
+
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+function resetQuiz() {
+
+    document.querySelectorAll("input")
+        .forEach(input => {
+
+            input.value = "";
+
+            input.style.borderBottomColor =
+                "#777";
+
+            input.style.background =
+                "transparent";
+
+        });
+
+
+    document.querySelectorAll(".option")
+        .forEach(option => {
+
+            option.classList.remove("selected");
+
+            option.style.color = "";
+
+        });
+
+
+    const result =
+        document.getElementById("result");
+
+    result.style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
