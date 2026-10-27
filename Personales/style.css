@@ -1,0 +1,230 @@
+:root {
+  --azul-oscuro: #163f72;
+  --azul-medio: #386bac;
+  --blanco: #ffffff;
+  --fuente-titulo: "Montserrat", "Segoe UI", Arial, sans-serif;
+  --fuente-texto: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #d9dde3;
+  font-family: var(--fuente-texto);
+  padding: 24px 0;
+}
+
+/* Hoja tamaño carta (8.5 x 11 in a 96 dpi) */
+.pagina {
+  position: relative;
+  width: 816px;
+  height: 1056px;
+  margin: 0 auto;
+  background: var(--blanco);
+  overflow: hidden;
+}
+
+/* Franja superior azul oscuro */
+.franja {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  right: 0;
+  height: 186px;
+  background: var(--azul-oscuro);
+}
+
+/* Barra lateral */
+.lateral {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 32px;
+  width: 308px;
+  background: var(--azul-medio);
+  color: var(--blanco);
+  padding: 0 36px;
+}
+
+.foto {
+  width: 236px;
+  height: 236px;
+  margin-top: 33px;
+  border: 6px solid var(--blanco);
+  border-radius: 50%;
+  overflow: hidden;
+  background: #5f87b3;
+}
+.foto img,
+.foto svg { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+.lateral h2 {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contacto { margin-top: 38px; }
+.contacto ul { list-style: none; margin-top: 16px; }
+.contacto li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.icono {
+  flex: none;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  background: var(--blanco);
+  display: grid;
+  place-items: center;
+}
+.icono svg { width: 16px; height: 16px; fill: none; stroke: var(--azul-oscuro); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.separador {
+  border: 0;
+  border-top: 2px solid var(--blanco);
+  margin: 20px -16px 24px;
+}
+
+.habilidades ul,
+.educacion ul { margin-top: 18px; padding-left: 22px; }
+.habilidades li {
+  font-size: 16px;
+  line-height: 26px;
+  padding-left: 6px;
+}
+.habilidades li::marker,
+.educacion li::marker { font-size: 12px; }
+
+.educacion li { font-size: 16px; line-height: 21px; margin-bottom: 14px; padding-left: 6px; }
+.educacion .detalle { display: block; font-size: 14px; line-height: 24px; margin-top: 8px; }
+
+/* Contenido principal */
+.principal {
+  position: absolute;
+  top: 0;
+  left: 378px;
+  right: 64px;
+  bottom: 0;
+}
+
+.encabezado {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  right: -64px;
+  height: 186px;
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.encabezado h1 {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  font-size: 49px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.encabezado p {
+  font-family: var(--fuente-titulo);
+  font-weight: 500;
+  font-size: 23px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+
+.principal h2 {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--azul-oscuro);
+}
+
+.acerca { position: absolute; top: 248px; left: 0; right: 0; }
+.acerca p {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 21px;
+  color: var(--azul-oscuro);
+  text-align: justify;
+}
+
+.linea {
+  position: absolute;
+  top: 392px;
+  left: 0;
+  right: 0;
+  border: 0;
+  border-top: 2px solid var(--azul-oscuro);
+}
+
+.experiencia { position: absolute; top: 421px; left: 0; right: 0; bottom: 0; }
+
+.linea-tiempo {
+  list-style: none;
+  position: relative;
+  margin-top: 24px;
+  padding-left: 33px;
+  height: 100%;
+}
+/* Línea vertical que baja hasta el final de la hoja */
+.linea-tiempo::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 0;
+  width: 2px;
+  background: var(--azul-oscuro);
+}
+
+.puesto { position: relative; height: 135px; color: var(--azul-oscuro); }
+.puesto::before {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: 1px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--azul-oscuro);
+}
+.puesto h3 {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+}
+.puesto .empresa {
+  font-size: 13.5px;
+  line-height: 19px;
+  margin-top: 12px;
+}
+.puesto .descripcion {
+  font-size: 13.5px;
+  line-height: 19px;
+  margin-top: 14px;
+}
+
+@media print {
+  @page { size: letter; margin: 0; }
+  body { background: none; padding: 0; }
+  .pagina { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* En pantallas angostas la hoja se escala para que quepa completa */
+@media (max-width: 840px) {
+  body { padding: 0; }
+  .pagina { zoom: calc(100vw / 816px); }
+}
